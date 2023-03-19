@@ -22,24 +22,24 @@ public class Main {
         String rezult;
         boolean isRoman = false;
 
-        String[] oper = exp.split("[\\-/*+]"); // ['2','3']
-        if (oper.length != 2) {
-            throw new Exception("Должно быть 2 операнда");
+        String[] oper = exp.split(" "); // ['2','+','3']
+        if (oper.length != 3) {
+            throw new Exception("т.к. формат математической операции не удовлетворяет заданию - два операнда и один оператор (+, -, /, *)");
         }
         operete = detecterOper(exp);
         if (operete == null) {
             throw new Exception("Неподдерживаемая операция");
         }
         //оба числа арабские
-        if (!Roman.isRoman(oper[0]) && !Roman.isRoman(oper[1])) {
+        if (!Roman.isRoman(oper[0]) && !Roman.isRoman(oper[2])) {
             num1 = Integer.parseInt(oper[0]);
-            num2 = Integer.parseInt(oper[1]);
+            num2 = Integer.parseInt(oper[2]);
             isRoman = false;
         }
         // оба числа римские
-        else if (Roman.isRoman(oper[0]) && Roman.isRoman(oper[1])) {
+        else if (Roman.isRoman(oper[0]) && Roman.isRoman(oper[2])) {
             num1 = Roman.converterToArab(oper[0]);
-            num2 = Roman.converterToArab(oper[1]);
+            num2 = Roman.converterToArab(oper[2]);
             isRoman = true;
         }
         //если одни число римское, а другое - арабское

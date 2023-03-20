@@ -7,12 +7,12 @@ public class Main {
         String exp = scanner.nextLine();
         calc(exp);
     }
+
     public static void calc(String input) throws Exception {
 
         System.out.println(parser(input));
 
     }
-
 
 
     static String parser(String exp) throws Exception {
@@ -51,15 +51,15 @@ public class Main {
             throw new Exception("Числа не должны быть больше 10");
         }
 
-        int arabian = calc(num1,num2, operete);
+        int arabian = calc(num1, num2, operete);
         // если это римское число
-        if (isRoman){
-            if (arabian <= 0){
+        if (isRoman) {
+            if (arabian <= 0) {
                 throw new Exception("Римское число обязано быть больше 0");
             }
             // конвертируем арабское число в римское
             rezult = Roman.cinverterToRoman(arabian);
-        }else {
+        } else {
             // конверт арабское число в тип стринг
             rezult = String.valueOf(arabian);
         }
@@ -69,27 +69,27 @@ public class Main {
 
 
     static String detecterOper(String exp) {
-        if (exp.contains("+") && exp.length() == 1) {
+        if (exp.contains("+")) {
             return "+";
-        } else if (exp.contains("-") && exp.length() == 1) {
+        } else if (exp.contains("-")) {
             return "-";
-        } else if (exp.contains("*")&& exp.length() == 1) {
+        } else if (exp.contains("*")) {
             return "*";
-        } else if (exp.contains("/")&& exp.length() == 1) {
+        } else if (exp.contains("/")) {
             return "/";
         } else {
             return null;
         }
     }
 
-    static int calc(int a, int b, String oper){
-        if (oper.equals("+")){
+    static int calc(int a, int b, String oper) {
+        if (oper.equals("+")) {
             return a + b;
-        }else if (oper.equals("-")){
-            return a-b;
-        }else if (oper.equals("*")){
+        } else if (oper.equals("-")) {
+            return a - b;
+        } else if (oper.equals("*")) {
             return a * b;
-        }else {
+        } else {
             return a / b;
         }
     }
@@ -124,7 +124,7 @@ class Roman {
         return -1;
     }
 
-    public static String cinverterToRoman(int arab){
+    public static String cinverterToRoman(int arab) {
         return romanArray[arab];
     }
 }

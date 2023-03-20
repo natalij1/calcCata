@@ -69,13 +69,13 @@ public class Main {
 
 
     static String detecterOper(String exp) {
-        if (exp.contains("+")) {
+        if (exp.contains("+") && exp.length() == 1) {
             return "+";
-        } else if (exp.contains("-")) {
+        } else if (exp.contains("-") && exp.length() == 1) {
             return "-";
-        } else if (exp.contains("*")) {
+        } else if (exp.contains("*")&& exp.length() == 1) {
             return "*";
-        } else if (exp.contains("/")) {
+        } else if (exp.contains("/")&& exp.length() == 1) {
             return "/";
         } else {
             return null;

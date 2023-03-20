@@ -23,7 +23,8 @@ public class Main {
         boolean isRoman = false;
 
         String[] oper = exp.split(" "); // ['2','+','3']
-        if (oper.length != 3) {
+
+        if (oper.length != 3 || oper[1].length() > 1) {
             throw new Exception("т.к. формат математической операции не удовлетворяет заданию - два операнда и один оператор (+, -, /, *)");
         }
         operete = detecterOper(exp);
